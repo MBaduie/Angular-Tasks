@@ -1,0 +1,82 @@
+
+<div class="container m-5">
+  <form [formGroup]="MyForm" (ngSubmit)="save()">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip01">UserName</label>
+        <input type="text" class="form-control" formControlName="name" id="validationTooltip01" placeholder="First name"
+        [ngClass]="{
+          'is-valid': MyForm.controls['name'].valid && MyForm.controls['name'].touched ,
+          'is-invalid': MyForm.controls['name'].invalid && MyForm.controls['name'].touched,
+        }">
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <!-- <div class="col-md-4 mb-3">
+        <label for="validationTooltip02">Last name</label>
+        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div> -->
+      <div class="col-md-4 mb-3">
+        <label for="">Email</label>
+        <div class="input-group">
+          <!-- <div class="input-group-prepend">
+            <span class="input-group-text" id="">@</span>
+          </div> -->
+          <input
+          type="text"
+          class="form-control"
+          id="validationCustomUsername"
+          formControlName="email"
+          [ngClass]="{
+            'is-valid': MyForm.controls['email'].valid && MyForm.controls['email'].touched,
+            'is-invalid': MyForm.controls['email'].invalid && MyForm.controls['email'].touched,
+         }"
+        />
+          <!-- <div class="invalid-tooltip">
+            Please choose a unique and valid username.
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip03">PhoneNumber</label>
+        <input type="text" class="form-control" formControlName="phoneNumber" id="validationTooltip03" placeholder="PhoneNumber"
+        [ngClass]="{
+          'is-valid': MyForm.controls['phoneNumber'].valid && MyForm.controls['phoneNumber'].touched ,
+          'is-invalid': MyForm.controls['phoneNumber'].invalid && MyForm.controls['phoneNumber'].touched,
+        }">
+        <div class="invalid-tooltip">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationTooltip04">Password</label>
+        <input type="password" class="form-control"  formControlName="password" id="validationTooltip04" placeholder="Password"
+        [ngClass]="{
+          'is-valid': MyForm.controls['password'].valid && MyForm.controls['password'].touched ,
+          'is-invalid': MyForm.controls['password'].invalid && MyForm.controls['password'].touched,
+        }"
+        >
+        <div class="invalid-tooltip">
+          Please provide a valid state.
+        </div>
+            </div>
+
+      <!-- <div class="col-md-3 mb-3">
+        <label for="validationTooltip05">Zip</label>
+        <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
+        <div class="invalid-tooltip">
+          Please provide a valid zip.
+        </div>
+      </div> -->
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="MyForm.invalid" >Register</button>
+  </form>
+</div>
+

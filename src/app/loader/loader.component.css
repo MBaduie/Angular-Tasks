@@ -1,0 +1,9 @@
+.spinner-grow{
+  height: 100Vh;
+  width: 100%;
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}

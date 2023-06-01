@@ -1,0 +1,79 @@
+<div class="container">
+  <form class="row g-3" [formGroup]="MyForm" (ngSubmit)="send()">
+    <div class="col-12">
+      <label for="validationCustom01" class="form-label">Product Name</label>
+      <input type="text" class="form-control" id="validationCustom01" formControlName="name" [ngClass]="{
+            'is-valid': MyForm.controls['name'].valid && MyForm.controls['name'].touched,
+            'is-invalid': MyForm.controls['name'].invalid && MyForm.controls['name'].touched,
+         }" />
+      <div class="invalid-feedback" *ngIf="MyForm.controls['name'].invalid && MyForm.controls['name'].touched">
+        <span *ngIf="MyForm.controls['name'].hasError('required')">Please provide a enter User name.</span>
+      </div>
+      <div class="valid-feedback" *ngIf="MyForm.controls['name'].valid">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="validationCustom02" class="form-label">Description</label>
+      <input type="text" class="form-control" id="validationCustom02" formControlName="description" [ngClass]="{
+            'is-valid': MyForm.controls['description'].valid && MyForm.controls['description'].touched,
+            'is-invalid': MyForm.controls['description'].invalid && MyForm.controls['description'].touched,
+         }" />
+      <div class="valid-feedback" *ngIf="MyForm.controls['description'].valid">
+        Looks good!
+      </div>
+      <div class="invalid-feedback" *ngIf="
+        MyForm.controls['description'].invalid &&
+        MyForm.controls['description'].touched
+        ">
+        <span *ngIf="MyForm.controls['description'].hasError('required')">Please provide a enter Phone Number.</span>
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="validationCustom02" class="form-label">Quantity</label>
+      <input type="text" class="form-control" id="validationCustom02" formControlName="quantity" [ngClass]="{
+            'is-valid': MyForm.controls['quantity'].valid && MyForm.controls['quantity'].touched,
+            'is-invalid': MyForm.controls['quantity'].invalid && MyForm.controls['quantity'].touched,
+         }" />
+      <div class="valid-feedback" *ngIf="MyForm.controls['quantity'].valid">
+        Looks good!
+      </div>
+      <div class="invalid-feedback" *ngIf="
+        MyForm.controls['quantity'].invalid && MyForm.controls['quantity'].touched
+        ">
+        <span *ngIf="MyForm.controls['quantity'].hasError('required')">Please provide a enter Quantity.</span>
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="validationCustom02" class="form-label">Price</label>
+      <input type="text" class="form-control" id="validationCustom02" formControlName="price" [ngClass]="{
+            'is-valid': MyForm.controls['price'].valid && MyForm.controls['price'].touched,
+            'is-invalid': MyForm.controls['price'].invalid && MyForm.controls['price'].touched,
+         }" />
+      <div class="valid-feedback" *ngIf="MyForm.controls['price'].valid">
+        Looks good!
+      </div>
+      <div class="invalid-feedback" *ngIf="MyForm.controls['price'].invalid && MyForm.controls['price'].touched">
+        <span *ngIf="MyForm.controls['price'].hasError('required')">Please provide a enter Price.</span>
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="validationCustom02" class="form-label">Colors of Product</label>
+      <button class="btn" (click)="add()">add</button>
+      <div class="row" formArrayName="colors" *ngFor="let item of listColors.controls;let i = index">
+        <input class="col-6" type="color" [formControlName]="i" />
+        <button (click)="remove(i)" class="btn btn-danger col-6">X</button>
+      </div>
+    </div>
+    <div>
+      <label for="validationCustom02" class="form-label">Upload product Image</label>
+      <input class="form-control" type="file" #img (change)="upload(img.files)">
+    </div>
+    <div class="col-12">
+      <a href="">
+
+      </a>
+      <button class="btn btn-primary" type="submit" [disabled]="MyForm.invalid">Register</button>
+    </div>
+  </form>
+</div>

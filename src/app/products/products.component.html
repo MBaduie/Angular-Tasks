@@ -1,0 +1,22 @@
+<div  style="display: flex; width: 100%; flex-wrap: wrap; justify-content: space-around;">
+  <div class="card" style="width: 16rem; margin: 25px;" *ngFor="let item of products; let i =index ">
+    <img class="card-img-top" src="{{item.imgURL}}" alt="Card image cap">
+    <div class="card-body"[ngStyle]="{'background-color': (item.quantity === 0) ? 'red' : (item.quantity === 1) ? 'green' : 'white'}">
+      <h5 class="card-title">{{item.name}}</h5>
+      <!-- <p class="card-text">{{item.id}}</p> -->
+      <p class="card-text">Quantity {{item.quantity}}</p>
+      <p class="card-text">Price {{item.price}}</p>
+      <!-- <p class="card-text">category {{item.category}}</p> -->
+      <!-- <a href="#" class="btn btn-primar y" (click)="Add(item)">Add To Favorite</a> -->
+      <!-- <a href="#" class="btn btn-primar y" >Add To Cart</a> -->
+      <!-- <button class="btn btn-primar y" (click)="Add(item)" >Add To Cart </button> -->
+      <a class="btn" (click)="Add(item)"><i class="text-primary fa fa-shopping-cart"></i></a>
+      <a class="btn"  routerLink="/edit-product/{{item._id}}"><i class="fa fa-edit text-warning"></i></a>
+      <a class="btn btn-danger" (click)="del(item._id!)" ><i class="fa fa-trash"></i></a>
+
+      <!-- <a href="#" class="btn btn-primar y" (click)= "(i)">Update</a> -->
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div  style="display: flex; width: 100%; flex-wrap: wrap; justify-content: space-around;">
+  <div class="card" style="width: 16rem; margin: 25px;" *ngFor="let item of cartItem; let i = index">
+    <img class="card-img-top" src="{{item.p.imgURL}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{item.p.name}}</h5>
+      <!-- <p class="card-text">{{item.id}}</p> -->
+      <p class="card-text">{{item.q}}</p>
+      <p class="card-text">Price{{item.p.price}}</p>
+      <p class="card-text">Total Price {{item.p.price* item.q}}</p>
+      <!-- <a href="#" class="btn btn-primar y" >Add To Cart</a> -->
+      <a href="#" class="btn btn-primar y">Delete</a>
+      <button (click)="del(i)" >Delete</button>
+      <!-- <i class="fa-solid fa-plus"></i> -->
+      <!-- <input type="button" value="sda"> -->
+      <button (click)="Pluss(i)">Plus</button>
+      <a href=""></a>
+      <button><i class="fa-solid fa-minus"(click)="Minus(i)"></i></button>
+    </div>
+  </div>
+</div>
+
